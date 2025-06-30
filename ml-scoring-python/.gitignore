@@ -1,0 +1,16 @@
+# Bytecode files
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.env/
+
+# Model files or large files (optional, depends if you commit models)
+*.pkl
+
+# OS or editor specific
+.DS_Store
+
+# Logs
+*.log
