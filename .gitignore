@@ -32,3 +32,5 @@ Thumbs.db
 
 # Other
 *.swp
+*.csv
+resources/data/unzipped/
