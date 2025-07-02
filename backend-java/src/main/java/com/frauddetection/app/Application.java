@@ -8,10 +8,11 @@ import com.frauddetection.simulator.ZipUtils;
 
 public class Application {
 
+    @SuppressWarnings("UseSpecificCatch")
     public static void main(String[] args) {
-        String zipPath = "backend-java/src/main/resources/creditcard.csv.zip";
-        String extractDir = "backend-java/src/main/resources/unzipped";
-        String extractedCsvPath = extractDir + "/transactions.csv";
+        String zipPath = "backend-java/src/main/resources/mobileMoneyTransactions.zip";
+        String extractDir = "backend-java/src/main/resources";
+        String extractedCsvPath = extractDir + "/mobileMoneyTransactions.csv";
 
         try {
             // Unzip CSV before reading

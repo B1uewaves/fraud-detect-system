@@ -1,13 +1,14 @@
 package com.frauddetection.kafka;
-import org.apache.kafka.clients.producer.*;
-import org.apache.kafka.common.serialization.StringSerializer;
 
+import java.time.Duration;
 import java.util.Collections;
 import java.util.Properties;
 
+import org.apache.kafka.clients.consumer.Consumer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.common.serialization.StringDeserializer;
 
 public class KafkaConsumerService {
     private final Consumer<String, String> consumer;
