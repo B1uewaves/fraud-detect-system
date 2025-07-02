@@ -34,3 +34,4 @@ Thumbs.db
 *.swp
 *.csv
 resources/data/unzipped/
+backend-java/src/main/resources/creditcard.zip
