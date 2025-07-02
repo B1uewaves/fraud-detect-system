@@ -3,13 +3,13 @@ package com.frauddetection.kafka;
 import java.util.Properties; //pass configuration settings
 
 import org.apache.kafka.clients.producer.Callback; //Lets you run logic after the message is sent (success/failure)
-import org.apache.kafka.clients.producer.KafkaProducer; //actual Kafka client for sending messages.
+import org.apache.kafka.clients.producer.KafkaProducer; //temporarily buffers messages before sending them to topic partitions
 import org.apache.kafka.clients.producer.ProducerRecord; // a message with topic, key, and value
 import org.apache.kafka.clients.producer.RecordMetadata; //info about where the message landed
 
 public class KafkaProducerService {
-    private KafkaProducer<String, String> producer; //<key, value>
-    private String topic; //ordered collection of messages
+    private final KafkaProducer<String, String> producer; //<key, value>
+    private final String topic; //ordered collections of messages in partition
 
     public KafkaProducerService(String bootstrapServers, String topic) {
         Properties props = new Properties();
