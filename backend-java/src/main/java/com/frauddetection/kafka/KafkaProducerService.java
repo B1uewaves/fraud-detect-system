@@ -1,16 +1,15 @@
 package com.frauddetection.kafka;
 
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.clients.producer.RecordMetadata;
-import org.apache.kafka.clients.producer.Callback;
+import java.util.Properties; //pass configuration settings
 
-import java.util.Properties;
-import java.util.concurrent.Future;
+import org.apache.kafka.clients.producer.Callback; //Lets you run logic after the message is sent (success/failure)
+import org.apache.kafka.clients.producer.KafkaProducer; //actual Kafka client for sending messages.
+import org.apache.kafka.clients.producer.ProducerRecord; // a message with topic, key, and value
+import org.apache.kafka.clients.producer.RecordMetadata; //info about where the message landed
 
 public class KafkaProducerService {
-    private KafkaProducer<String, String> producer;
-    private String topic;
+    private KafkaProducer<String, String> producer; //<key, value>
+    private String topic; //ordered collection of messages
 
     public KafkaProducerService(String bootstrapServers, String topic) {
         Properties props = new Properties();
@@ -24,17 +23,17 @@ public class KafkaProducerService {
     }
 
     public void sendMessage(String key, String value) {
-        ProducerRecord<String, String> record = new ProducerRecord<>(topic, key, value);
+        ProducerRecord<String, String> record = new ProducerRecord<>(topic, key, value); //defined method to sent a message
         
-        producer.send(record, new Callback() {
+        producer.send(record, new Callback() { 
             @Override
             public void onCompletion(RecordMetadata metadata, Exception exception) {
                 if (exception != null) {
                     System.err.println("Failed to send message: " + exception.getMessage());
                 } else {
                     System.out.println("Message sent successfully to topic " + metadata.topic() +
-                                       " partition " + metadata.partition() +
-                                       " offset " + metadata.offset());
+                                       " partition " + metadata.partition() + //block which the message was stored
+                                       " offset " + metadata.offset()); //position within a partition
                 }
             }
         });
