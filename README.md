@@ -37,3 +37,11 @@ Binary label identifying fraudulent transactions (1 means fraud, 0 means non-fra
 
 isFlaggedFraud
 Flag for illegal attempts to transfer amounts greater than 200,000 in a single transaction (1 means flagged, 0 means not flagged).
+
+Fraud Proportion by Type:
+       type  Fraud_Proportion
+0   CASH_IN          0.000000
+1  CASH_OUT          0.001840
+2     DEBIT          0.000000
+3   PAYMENT          0.000000
+4  TRANSFER          0.007688

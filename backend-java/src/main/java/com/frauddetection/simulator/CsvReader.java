@@ -22,9 +22,9 @@ public class CsvReader {
                 int step = Integer.parseInt(values[0]);
                 String type = values[1];
                 double amount = Double.parseDouble(values[2]);
-                String nameOrig = values[3];
+                String nameOrg = values[3];
                 double oldbalanceOrg = Double.parseDouble(values[4]);
-                double newbalanceOrig = Double.parseDouble(values[5]);
+                double newbalanceOrg = Double.parseDouble(values[5]);
                 String nameDest = values[6];
                 double oldbalanceDest = Double.parseDouble(values[7]);
                 double newbalanceDest = Double.parseDouble(values[8]);
@@ -35,9 +35,9 @@ public class CsvReader {
                     step,
                     type,
                     amount,
-                    nameOrig,
+                    nameOrg,
                     oldbalanceOrg,
-                    newbalanceOrig,
+                    newbalanceOrg,
                     nameDest,
                     oldbalanceDest,
                     newbalanceDest,

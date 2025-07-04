@@ -32,5 +32,14 @@ public class Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        // AmountRule amountRule = new AmountRule(10000.0);
+
+        // Transaction transaction = new Transaction();
+        // // set transaction details...
+
+        // if (amountRule.isSuspicious(transaction)) {
+        //     System.out.println("Potential fraud detected!");
+        // }
     }
 }

@@ -4,25 +4,25 @@ public class Transaction {
     private final int step;
     private final String type;
     private final double amount;
-    private final String nameOrig;
+    private final String nameOrg;
     private final double oldbalanceOrg;
-    private final double newbalanceOrig;
+    private final double newbalanceOrg;
     private final String nameDest;
     private final double oldbalanceDest;
     private final double newbalanceDest;
     private final int isFraud;
     private final int isFlaggedFraud;
 
-    public Transaction(int step, String type, double amount, String nameOrig,
-                       double oldbalanceOrg, double newbalanceOrig,
+    public Transaction(int step, String type, double amount, String nameOrg,
+                       double oldbalanceOrg, double newbalanceOrg,
                        String nameDest, double oldbalanceDest,
                        double newbalanceDest, int isFraud, int isFlaggedFraud) {
         this.step = step;
         this.type = type;
         this.amount = amount;
-        this.nameOrig = nameOrig;
+        this.nameOrg = nameOrg;
         this.oldbalanceOrg = oldbalanceOrg;
-        this.newbalanceOrig = newbalanceOrig;
+        this.newbalanceOrg = newbalanceOrg;
         this.nameDest = nameDest;
         this.oldbalanceDest = oldbalanceDest;
         this.newbalanceDest = newbalanceDest;
@@ -42,16 +42,16 @@ public class Transaction {
         return amount;
     }
 
-    public String getNameOrig() {
-        return nameOrig;
+    public String getNameOrg() {
+        return nameOrg;
     }
 
     public double getOldbalanceOrg() {
         return oldbalanceOrg;
     }
 
-    public double getNewbalanceOrig() {
-        return newbalanceOrig;
+    public double getNewbalanceOrg() {
+        return newbalanceOrg;
     }
     
     public String getNameDest() {
@@ -80,9 +80,9 @@ public class Transaction {
                 "step=" + step +
                 ", type='" + type + '\'' +
                 ", amount=" + amount +
-                ", nameOrig='" + nameOrig + '\'' +
+                ", nameOrig='" + nameOrg + '\'' +
                 ", oldbalanceOrg=" + oldbalanceOrg +
-                ", newbalanceOrig=" + newbalanceOrig +
+                ", newbalanceOrig=" + newbalanceOrg +
                 ", nameDest='" + nameDest + '\'' +
                 ", oldbalanceDest=" + oldbalanceDest +
                 ", newbalanceDest=" + newbalanceDest +
