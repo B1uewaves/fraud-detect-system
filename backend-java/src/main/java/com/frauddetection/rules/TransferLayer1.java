@@ -1,32 +1,37 @@
 package com.frauddetection.rules;
 
-import com.frauddetection.model.Transaction;
+import java.util.Set;
+
+import com.frauddetection.simulator.model.Transaction;
 
 public class TransferLayer1 {
 
-    public boolean isSuspicious(Transaction tx) {
-        if (!"TRANSFER".equals(tx.getType())) {
-            return false;
+    public static boolean isFraudulent(Transaction tx, Set<String> dualRoleAccounts) {
+        int score = 0;
+
+        double amount = tx.getAmount();
+        double diffOrig = tx.getOldbalanceOrg() - tx.getNewbalanceOrg();
+
+        // Rule 1: Extremely High Amount (100% of such transactions are suspicious)
+        if (amount >= 1_000_000) {
+            score += 3;
         }
 
-        double senderDiff = tx.getOldbalanceOrg() - tx.getNewbalanceOrg();
-        double recipientDiff = tx.getNewbalanceDest() - tx.getOldbalanceDest();
-
-        // 1. High Amount threshold from your data analysis
-        if (tx.getAmount() > 1_500_000) {
-            return true;
+        // Rule 2: Moderately High Amount (starting from 300k to 1M)
+        else if (amount >= 300_000) {
+            score += 2;
         }
 
-        // 2. Recipient's balance unchanged but large amount transferred
-        if (Math.abs(senderDiff - tx.getAmount()) < 1e-2 && recipientDiff == 0) {
-            return true;
+        // Rule 3: Balance drops significantly
+        if (diffOrig > 500_000) {
+            score += 1;
         }
 
-        // 3. Sender old balance less than amount transferred
-        if (tx.getOldbalanceOrg() < tx.getAmount()) {
-            return true;
+        // Rule 4: Account involved in both origin and destination (common fraud indicator)
+        if (dualRoleAccounts.contains(tx.getNameOrg()) && dualRoleAccounts.contains(tx.getNameDest())) {
+            score += 2;
         }
 
-        return false;
+        return score >= 3;
     }
 }

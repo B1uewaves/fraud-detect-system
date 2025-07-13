@@ -25,7 +25,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>com.frauddetection.app.Application</mainClass>
+                  <mainClass>com.frauddetection.simulator.app.Application</mainClass>
                 </transformer>
               </transformers>
             </configuration>

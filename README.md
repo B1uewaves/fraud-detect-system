@@ -2,6 +2,12 @@
 2. determine fraud logic: (layer1; use java for simle filteiring layer2: use ml scoring )
 2. use kafka to simulate high-frequency data stream
 
+kafka: user designed distribution strategy of data queue(partition of events). 1 consumer can have all? no problem(create multiple consumers, a partition can only be consumed by 1 consumer, but 1 consumer can consume multiple complete partition). topic= tv channel. Record = a msg
+Why kafka: horixoantl scalable, high=throughput
+msg with a key. hash(key)% N = partition 
+offset = position in partition, act as a counter, eg next to read is offset 3
+broker = a group of partitions(can contain multiple topics)
+leader-follower (consumer reads from leader, follower act as backup)
 
 
 Dataset Variable Descriptions:

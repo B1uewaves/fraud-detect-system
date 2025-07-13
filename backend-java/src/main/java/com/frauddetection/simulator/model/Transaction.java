@@ -1,4 +1,4 @@
-package com.frauddetection.model;
+package com.frauddetection.simulator.model;
 
 public class Transaction {
     private final int step;

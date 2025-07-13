@@ -38,13 +38,6 @@
             <version>2.15.2</version>
         </dependency>
 
-        <!-- SLF4J for logging -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>2.0.7</version>
-        </dependency>
-
         <!-- JUnit for testing -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -60,11 +53,12 @@
             <version>5.8</version>
         </dependency>
 
-        <!-- Jackson for JSON conversion -->
+
+        <!-- SLF4J for logging -->
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.15.2</version>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.36</version>
         </dependency>
 
     </dependencies>
@@ -96,7 +90,7 @@
                         <configuration>
                             <transformers>
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>com.frauddetection.app.Application</mainClass>
+                                    <mainClass>com.frauddetection.simulator.app.Application</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>
